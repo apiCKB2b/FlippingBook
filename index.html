@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> CATALOGOS - CKLASS </title>
+    <!--meta name="viewport" content="width = device-width, minimum-scale=1, maximum-scale=1, user-scalable = no" /-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- External JS dependencies -->
+    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="js/underscore-min.js"></script>
+    <script type="text/javascript" src="js/backbone-min.js"></script>
+    <script type="text/javascript" src="sweetAlert2/sweetalert2.all.min.js"></script>
+    
+    <!-- Turn.js UI Kit -->
+    <script type="text/javascript" src="js/turn.min.js"></script>
+    
+    <!-- App dependencies -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script src="js/libs/jquery.min.js"></script>
+
+    <script type="text/javascript" src="js/libs/zip.min.js"></script>
+
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"
+      data-auto-a11y="true"
+    ></script>
+
+    <link rel="stylesheet" type="text/css" href="src/pushbar.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+
+
+     <!-- External CSS dependencies -->
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css"></link>
+    <link rel="icon" type="image/png" href="img/favicon.png?a" />
+    <link href='http://fonts.googleapis.com/css?family=Carrois+Gothic+SC' rel='stylesheet' type='text/css'>
+
+    <!-- App CSS dependencies -->
+    <link type="text/css" rel="stylesheet" href="css/main.css"></link>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <style type="text/css">
+      .page-1 .s1{
+        -webkit-transform: translateY(100px);
+        -webkit-transition: all 1.5s;
+        opacity: 0;
+      }
+      .page-1 .s2{
+        -webkit-transform: translateY(100px);
+        -webkit-transition: all 1s;
+        -webkit-transition-delay: 0.5s;
+        opacity: 0;
+        font-family: 'Carrois Gothic SC', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 40px;
+        text-align: center;
+        color: white;
+      }
+    
+      .page-1.animation-on .s1{
+        -webkit-transform: translateY(0px);
+        opacity: 1;
+      }
+      .page-1.animation-on .s2{
+        -webkit-transform: translateY(0px);
+        opacity: 1;
+      }
+
+      img {
+        position: relative;
+        max-width: 100%;
+        height: auto;
+        z-index: 0;
+      }
+      #imagen{
+        position: absolute;
+        width: 60px; 
+        height: 50px;
+        left: 520px;
+        top: 570px;
+        background-color: lightgrey;
+        z-index: 1;
+        filter: brightness(1.1);
+        mix-blend-mode: multiply;
+      }
+      @media only screen and (max-width: 600px) {
+        #imagen{
+        position: absolute;
+        width: 60px; 
+        height: 50px;
+        left: 160px;
+        top: 270px;        
+        background-color: lightgrey;
+        z-index: 1;        
+        filter: brightness(1.1);
+        mix-blend-mode: multiply;
+      }
+      }
+      
+
+    </style>
+  </head>
+<body>
+  <div class="catalog-app">
+    <br>
+    <div class="container">      
+      <div class="row justify-content-end">
+        <div class="col-3">
+          <div>
+            <a id="setting" data-pushbar-target="right">
+              <i             
+                class="fas fa-shopping-cart"
+                style="font-size: 35px; color: red"
+              ></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-3"></div>
+      </div>      
+    </div>
+
+
+  <div id="viewer">
+    <div id="flipbook" class="ui-flipbook">
+      
+      <div>
+        <img src="pages/00.jpg" width="800" height="950" >
+
+        <!--div style="text-align: center; height: 210px;  margin: auto;position: absolute; top: 0; left: 0; bottom: 0; right: 0;">
+        <img src="img/turnjs-logo@2x.png" width="50" class="s1" />
+        <h1 class="s2">
+          CKLASS <br /> los mejores catalogos <br /> de Mexico.
+        </h1>
+        </div-->
+      </div>
+      <!--div ondblclick="alert('Hola');" style="background-image: url(pages/01.jpg)"> </div-->
+      <div><img src="pages/1.jpg" width="800" height="950">
+        <figure id="imagen">
+          <img src="cart.png" onclick="peticion(2);"/>
+        </figure>
+      </div>
+      
+      <div>
+        <img src="pages/2.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/3.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/4.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/5.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/6.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/7.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/8.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/9.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/10.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/11.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/12.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/13.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/14.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/15.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/16.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/17.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/18.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/19.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/20.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/21.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/22.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/23.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/24.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/25.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/26.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/27.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/28.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/29.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/30.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/31.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/32.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/33.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/34.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/35.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/36.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/37.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/38.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/39.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/40.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/41.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/42.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/43.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/44.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/45.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/46.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/47.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/48.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/49.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/50.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/51.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/52.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/53.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/54.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/55.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/56.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/57.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/58.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/59.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/60.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/61.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/62.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/63.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/64.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/65.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/66.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/67.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/68.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/69.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/70.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/71.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/72.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/73.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/74.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/75.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/76.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/77.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/78.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/79.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/80.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/81.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/82.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/83.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/84.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/85.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/86.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/87.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/88.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/89.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/90.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/91.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/92.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/93.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/94.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/95.jpg" width="800" height="950" >
+      </div>
+      <div>
+        <img src="pages/96.jpg" width="800" height="950" >
+      </div>
+
+      
+      <a ignore="1" class="ui-arrow-control ui-arrow-next-page"></a>
+      <a ignore="1" class="ui-arrow-control ui-arrow-previous-page"></a>
+    </div>
+  </div>
+
+
+  <!-- controls -->
+  <div id="controls">
+    <div class="all">
+        <div class="ui-slider" id="page-slider">
+        <div class="bar">
+          <div class="progress-width">
+            <div class="progress">
+              <div class="handler"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--div class="ui-options" id="options">
+        <a class="ui-icon" id="ui-icon-table-contents">
+          <i class="fa fa-bars"></i>
+        </a>
+        <a class="ui-icon show-hint" title="Miniatures" id="ui-icon-miniature">
+          <i class="fa fa-th"></i>
+        </a>
+        <a class="ui-icon" id="ui-icon-zoom">
+          <i class="fa fa-file-o"></i>
+        </a>
+        <a class="ui-icon show-hint" title="Share" id="ui-icon-share">
+          <i class="fa fa-share"></i>
+        </a>
+        <a class="ui-icon show-hint" title="Full Screen" id="ui-icon-full-screen">
+          <i class="fa fa-expand"></i>
+        </a>
+        <a class="ui-icon show-hint" id="ui-icon-toggle">
+          <i class="fa fa-ellipsis-h"></i>
+        </a>
+      </div-->
+
+      <!-- zoom slider -->
+      <div id="zoom-slider-view" class="zoom-slider">
+          <div class="bg">
+             <div class="ui-slider" id="zoom-slider">
+              <div class="bar">
+                <div class="progress-width">
+                  <div class="progress">
+                    <div class="handler"></div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- / zoom slider -->
+    </div>
+    
+    <div id="ui-icon-expand-options">
+      <a class="ui-icon show-hint">
+        <i class="fa fa-ellipsis-h"></i>
+      </a>
+    </div>
+
+  </div>
+  <!-- / controls -->
+
+  <!-- miniatures -->
+  <!--div id="miniatures" class="ui-miniatures-slider"-->
+    
+  </div>
+  <!-- / miniatures -->
+  <div class="overlay"></div>
+    <aside class="col-sm-3" data-pushbar-id="right" data-pushbar-direction="right">
+      <div class="title">
+        <span data-pushbar-close class="close push_right"></span> Carrito de
+        deseos 
+        <hr />
+        <ul id="carritoLista" class="list-group"></ul>        
+        <hr />
+        <p class="text-right">Total: &dollar;<span id="total">0</span></p>
+        <!--<hr />
+        <button id="boton-vaciar" class="btn btn-danger">Vaciar Carrito</button>-->
+        <hr />
+        <button id="sendwtsp"type="button" class="btn btn-success" onclick="arrayFromList('carritoLista');">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/240px-WhatsApp.svg.png"
+              width="50"
+              height="50"
+            />
+            Enviar &nbsp;  &nbsp;  &nbsp;  <span id="numberItems" class="badge badge-light"></span>
+          </button>
+        <!--a href="https://api.whatsapp.com/send/?phone&text= *SOLICITO INFORMACION DEL MODELO*">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/240px-WhatsApp.svg.png"
+            width="50"
+            height="50"
+          />
+          <span id="numberItems" class="badge badge-light"></span>
+        </a-->
+      </div>
+    </aside>
+    <script type="text/javascript" src="src/pushbar.js"></script>
+    <script type="text/javascript">
+      const pushbar = new Pushbar({
+        blur: true,
+        overlay: true,
+      });
+    </script>
+   
+  <script>
+      const baseDeDatos = [];
+      let carrito1 = [];
+      let total = 0;
+      var arrayM = [];
+      let arrayPrecio = {};
+      var precioCarritoTotal = 0;
+
+      function peticion(pagina){
+        var paginaParametro = pagina;
+        $.ajax({
+            url: 'http://192.168.10.18:8090/api/modelo/params/',
+            type: "GET",
+            data: {
+                pagina: paginaParametro
+            },
+            success: function (arrayMo) {
+                var selectModelo = document.getElementById("SelectModel");
+                for (var x = 0; x < arrayMo.length; x++) {
+                  var nombreModelo = "option" + x;
+                  nombreModelo = document.createElement("option");
+                  nombreModelo.text = arrayMo[x].Modelo;
+                  selectModelo.add(nombreModelo);
+                }                
+            }
+        });
+
+        
+
+        const { value: fruit } = Swal.fire({
+            title: 'Selecciona Modelo,Talla y Color',
+            html:
+                '<select class="swal2-input edited" id="SelectModel"><option>Selecciona el Modelo</option></select>' +
+                '<select class="swal2-input edited" id="drpUserInput"><option id="colorOption">Selecciona el Color</option></select>' +
+                '<select class="swal2-input edited" id="drpReplacedUserInput"><option id="tallaSelect">Selecciona la Talla</option></select>',
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            cancelButtonColor: '#DD6B55',
+            confirmButtonText: '<i class="fa fa-thumbs-up""></i> Agregar',
+            allowOutsideClick: false
+        }).then((result) => {
+          var tallaS = document.getElementById("tallaSelect").value;
+          
+                    
+          if(result.value == true) {
+            var Tallas = document.getElementById("drpReplacedUserInput");
+            var ColorS = document.getElementById("drpUserInput");
+            var ModeloS = document.getElementById("SelectModel");
+
+
+            
+            agregar(ModeloS.value,Tallas.value,ColorS.value); 
+            total(precioCarritoTotal, ModeloS.value)
+
+            Swal.fire(
+              'Exito',
+              'Deseo Agregado al carrito',
+              'success'
+            )
+          }
+        });
+
+        /*var ModeloSeleccionado = document.getElementById("ModeloSelect")
+        ModeloSeleccionado.addEventListener("change", Refresh);
+        Refresh();*/
+        
+        function total(totalPrecio, Modelo){
+          var duo = 'DUO';
+          var calculoTotal = document.getElementById('total').innerHTML;
+          var totalFinal = (parseInt(calculoTotal) + parseInt(totalPrecio));
+          console.log('la suma')
+          if(Modelo.includes(duo)){
+            totalFinal = totalFinal * 2;
+          }
+          console.log(parseInt(calculoTotal))
+          console.log(parseInt(totalPrecio))
+          console.log('PRECIO DEL SPAN:')
+          console.log(calculoTotal)
+          console.log('PRECIO RECIBIDO')
+          console.log(totalFinal)
+          document.getElementById('total').innerHTML = totalFinal;
+        }
+
+        function agregar(modelo, talla, color) {
+        //let arrayPrice = JSON.parse(arrayPrecio);      
+        //console.log(arrayPrecio)
+        //let findPrecio = $(arrayPrice).find( e =>  e.Color == color && e.talla == talla);
+        //console.log('ESTO ES LO QUE ENCONTRO PARA PONER EN EL PRECIO')
+        //console.log(findPrecio)
+
+        var contenido = "";
+        contenido += '<li class="list-group-item", "text-right", "mx-2"t" value = "Modelo:' + modelo + ' Color:'+ color + ' Talla:'+ talla +'">';
+        contenido += '<span class="name">Modelo:' + modelo + ' Color:'+ color + ' Talla:'+ talla +"</span><br>";
+        contenido += '<button id="aumentar" onclick="carrito(this)" value="aumentar" class="btn btn-light">+</button>';
+        contenido += '<span id="contador">1</span>'
+        contenido += '<button id="disminuir" onclick="carrito(this)" value="disminuir" class="btn btn-light">-</button>'
+        contenido += "</li>";
+        $("#carritoLista").append(contenido);
+        //$("#carrito").listview("refresh");
+
+
+      }
+
+        $('select').on('change',function Refresh() {
+          //var ModeloSeleccionado = "096972"
+          var ModeloSeleccionado = document.getElementById("SelectModel");
+          $.ajax({
+            url: 'http://192.168.10.18:8090/api/orders/params/',
+            type: "GET",
+            data: {
+              modelo: ModeloSeleccionado.value
+            },
+            success: function (array) {          
+              var select = document.getElementById("drpUserInput");
+              for (var x = 0; x < array.length; x++) {
+                var nombreOption = "option" + x;
+                var nombreOption = document.createElement("option");
+                nombreOption.text = array[x].Color;
+                select.add(nombreOption);
+              }
+
+              var select2 = document.getElementById("drpReplacedUserInput");
+              for (var x = 0; x < array.length; x++) {
+                var totalPrecio =  array[0].Precio;
+                //console.log('Es el precio del modelo:'+totalPrecio)
+                precioCarritoTotal = totalPrecio;
+                //console.log(precioCarritoTotal)
+                //total(totalPrecio)  
+                var nombreOption = "option" + x;
+                var nombreOption = document.createElement("option");
+                nombreOption.text = array[x].Talla;
+                select2.add(nombreOption);
+              }
+              //arrayPrecio = {...array}
+            }
+          });
+        });
+      }
+
+      function arrayFromList(id) {
+        //Array con cada value:
+        var dataValue = [...document.querySelectorAll(`#${id}  li`)].map(
+          (element) => element.value
+        );
+
+        //Array con cada texto de la lista:
+        var dataElement = [...document.querySelectorAll(`#${id} li`)].map(
+          (element) => element.innerText
+        );
+
+        console.log(dataValue);   // Array [1,2,3,4]
+        console.log(dataElement.length);
+        console.log(dataElement);  
+        //console.log(dataElement); // Array ["Elemento1","Elemento2","Elemento3","Elemento4"]
+
+        var bodymsj = '*¡Hola! Solicito informacion de los siguientes Productos:*                                                                              '+ dataElement.toString();
+        console.log(bodymsj)
+
+        window.location.href = 'https://wa.me/?text='+bodymsj;
+
+        //return dataValue;
+      };
+  </script>
+
+<script type="text/javascript">
+  // Change these settings
+    FlipbookSettings = {
+      options: {
+        width: 1280,
+        height: 920
+      },
+
+      shareMessage: 'Introducing turn.js 5 - HTML5 Library for Flipbooks.',
+
+      table: [
+        {text: 'Cover', page: 1},
+        {text: 'Introduction', page: 2},
+        {text: 'Getting Started', page: 4},
+        {text: 'Reference', page: 6},
+        {text: 'Pre-order', page: 8},
+        {text: 'About', page: 12}
+      ],
+
+      pageFolder: 'content/catalog/'
+    };
+
+    $(window).load(function(event) {
+      $("#flipbook .page-1").addClass('animation-on');
+    });
+  </script>  
+  </body>
+</html>
